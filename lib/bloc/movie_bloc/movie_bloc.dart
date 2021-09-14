@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/models/genres_model.dart';
 import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/services/movies_api.dart';
 
