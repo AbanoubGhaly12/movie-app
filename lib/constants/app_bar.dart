@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/ui/search_for_movie.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({Key? key}) : super(key: key);

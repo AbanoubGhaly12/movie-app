@@ -29,10 +29,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       List<Movie> movieList;
       print(movieId);
       if (movieId == 0) {
-        movieList = (await service.searchForMovie() )!;
+        movieList = (await service.searchForMovie(movieName: 'Titanic') )!;
       } else {
         //print(movieId);
-        movieList = (await service.searchForMovie() )!;
+        movieList = (await service.searchForMovie(movieName: 'Titanic') )!;
       }
 
       yield SearchLoaded(movieList);

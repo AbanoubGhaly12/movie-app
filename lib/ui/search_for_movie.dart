@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/bloc/movie_bloc/movie_bloc_state.dart';
 import 'package:movie_app/bloc/search_bloc/search_bloc.dart';
 import 'package:movie_app/bloc/search_bloc/search_bloc_events.dart';
 import 'package:movie_app/bloc/search_bloc/search_bloc_state.dart';
@@ -29,7 +28,7 @@ class _SearchViewState extends State<SearchView> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SearchBloc>(create: (_) {
-          return SearchBloc()..add(SearchEventStarted(0, '', counter, refresh));
+          return SearchBloc()..add(SearchEventStarted(0, '', counter,''));
         }),
       ],
       child: Scaffold(
@@ -37,7 +36,7 @@ class _SearchViewState extends State<SearchView> {
           child:
                 BlocBuilder<SearchBloc, SearchState>(
                   builder: (context, state) {
-                    if (state is MovieLoading) {
+                    if (state is SearchLoading) {
                       return Center(
                         child: CircularProgressIndicator(),
                       );
@@ -47,7 +46,7 @@ class _SearchViewState extends State<SearchView> {
 
                       return Column(
                         children: [
-                          TextFormField(onChanged: (value){item.where((element) => element.contains(value).toList(),);},),
+                          TextField(onChanged: (value){}),
 
                           Expanded(
                             child: SmartRefresher(
@@ -59,7 +58,7 @@ class _SearchViewState extends State<SearchView> {
                               onLoading: () {
                                 //fetching more data
                                 BlocProvider.of<SearchBloc>(context)
-                                    .add(SearchEventStarted(0, '', counter, refresh));
+                                    .add(SearchEventStarted(0, '', counter, ''));
                                 refreshController.loadComplete();
                               },
                               child: ListView.separated(
@@ -69,9 +68,7 @@ class _SearchViewState extends State<SearchView> {
 
                                   return ListTile(
                                     onTap: () {
-                                      print(movie.title);
 
-                                      print(movie.overview);
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(

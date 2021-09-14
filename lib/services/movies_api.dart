@@ -62,18 +62,23 @@ class ApiService {
     }
   }
 
-  Future<List<Movie>?> searchForMovie() async {
+
+
+
+  Future<List<Movie>?> searchForMovie({required String movieName}) async {
     try {
+      List<Movie> temp = [];
       final urlFetchPage = '$baseUrl/discover/movie?api_key=$apiKey';
       final responseFetched = await _dio.get(urlFetchPage);
       print(responseFetched);
       var totalPageNumbers = responseFetched.data['total_pages'] as int;
       int totalPages = totalPageNumbers;
       print(totalPages);
+      print(movieName);
 
       if (countPage <= totalPages) {
         final url =
-            '$baseUrl/search/movie?api_key=$apiKey&page=$countPage';
+            '$baseUrl/discover/movie?api_key=$apiKey&page=$countPage&query=$movieName';
         final response = await _dio.get(url);
         print(response);
         var movies = response.data['results'] as List;
