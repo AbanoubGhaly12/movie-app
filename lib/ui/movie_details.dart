@@ -42,7 +42,7 @@ class MovieDetails extends StatelessWidget {
         onPressed: () {},
         child: Icon(
           Icons.favorite_outline,
-          color: Colors.black,
+          color: Colors.white,
         ),
         backgroundColor: Colors.teal,
       ),

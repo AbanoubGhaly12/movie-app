@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:movie_app/models/genres_model.dart';
 import 'package:movie_app/models/movies_model.dart';
 
 abstract class SearchState extends Equatable {

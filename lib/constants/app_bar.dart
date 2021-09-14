@@ -11,17 +11,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.teal,
       centerTitle: true,
       elevation: 0,
-      leading: IconButton(
-        icon: Icon(
-          Icons.search,
-          color: Colors.black,
-        ),
-        onPressed: () {},
-      ),
+
       title: Text(
         'Movies-App'.toUpperCase(),
         style: Theme.of(context).textTheme.caption!.copyWith(
-              color: Colors.black45,
+          color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
@@ -33,7 +27,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Text(
               'Now Playing',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
@@ -43,7 +37,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Text(
               'Most Rated',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),
@@ -53,7 +47,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Text(
               'Search',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
               ),
               textAlign: TextAlign.center,
             ),

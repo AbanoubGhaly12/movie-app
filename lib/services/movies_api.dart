@@ -73,7 +73,7 @@ class ApiService {
 
       if (countPage <= totalPages) {
         final url =
-            '$baseUrl/discover/movie?api_key=$apiKey&page=$countPage';
+            '$baseUrl/search/movie?api_key=$apiKey&page=$countPage';
         final response = await _dio.get(url);
         print(response);
         var movies = response.data['results'] as List;
