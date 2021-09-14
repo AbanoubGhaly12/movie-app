@@ -77,13 +77,11 @@ class _NowPlayingMoviesState extends State<NowPlayingMovies> {
                                             : '+18',
                                       )));
                         },
-                        leading: CircleAvatar(
-                          child: CachedNetworkImage(
-                            imageUrl:
-                                'https://image.tmdb.org/t/p/original/${movie.backdropPath}',
-                          ),
-                          backgroundColor: Colors.transparent,
-                        ),
+                         leading:movie.backdropPath != null? CircleAvatar(
+                      child: CachedNetworkImage(
+                      imageUrl: 'https://image.tmdb.org/t/p/original/${movie.backdropPath}'),
+                      backgroundColor: Colors.transparent,
+                      ):Icon(Icons.error_outline),
                         title: Text(movie.title),
                         subtitle: Text('Vote Average:${movie.voteAverage}'),
                         trailing: IconButton(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/detailed_column.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MovieDetails extends StatelessWidget {
   final String imageUrl;
@@ -16,7 +17,7 @@ class MovieDetails extends StatelessWidget {
       required this.voteCount,
       required this.voteAverage,
       required this.genre});
-
+  bool flag = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,12 +39,17 @@ class MovieDetails extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(
+        child: flag?Icon(
           Icons.favorite_outline,
+          color: Colors.white,
+        ):Icon(
+          Icons.favorite,
           color: Colors.white,
         ),
         backgroundColor: Colors.teal,
       ),
     );
+
+
   }
 }

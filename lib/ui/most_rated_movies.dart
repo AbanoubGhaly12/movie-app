@@ -77,7 +77,7 @@ class _MostRatedMovieState extends State<MostRatedMovie> {
                                         : '+18',
                                   )));
                         },
-                        leading:movie.backdropPath != Null? CircleAvatar(
+                        leading:movie.backdropPath != null? CircleAvatar(
                           child: CachedNetworkImage(
                               imageUrl: 'https://image.tmdb.org/t/p/original/${movie.backdropPath}'),
                           backgroundColor: Colors.transparent,

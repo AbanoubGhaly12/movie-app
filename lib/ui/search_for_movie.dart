@@ -42,7 +42,6 @@ class _SearchViewState extends State<SearchView> {
                       );
                     } else if (state is SearchLoaded) {
                       List<Movie> movies = state.searchList;
-                      bool refresh = true;
 
                       return Column(
                         children: [
