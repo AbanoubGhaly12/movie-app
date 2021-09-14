@@ -10,11 +10,9 @@ class ImageContainer extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         decoration: BoxDecoration(),
-        child:CircleAvatar(
-      child: CachedNetworkImage(
+        child: CachedNetworkImage(
       imageUrl: 'https://image.tmdb.org/t/p/original/$imageUrl'),
-      backgroundColor: Colors.transparent,
-    ),),
+    ),
       ):Container(child: Text('error loading'),
     );
   }
