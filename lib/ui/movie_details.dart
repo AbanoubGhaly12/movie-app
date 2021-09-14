@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/models/movie_details.dart';
 import 'package:movie_app/widgets/detailed_column.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class MovieDetails extends StatelessWidget {
 
