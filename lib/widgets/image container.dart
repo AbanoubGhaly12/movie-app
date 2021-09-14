@@ -6,16 +6,16 @@ class ImageContainer extends StatelessWidget {
   ImageContainer({required this.imageUrl});
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
+    return  imageUrl != null?  ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: Container(
         decoration: BoxDecoration(),
-        child: imageUrl != null? CircleAvatar(
+        child:CircleAvatar(
       child: CachedNetworkImage(
       imageUrl: 'https://image.tmdb.org/t/p/original/$imageUrl'),
       backgroundColor: Colors.transparent,
-    ):Container(child: Text('error loading'),),
-      ),
+    ),),
+      ):Container(child: Text('error loading'),
     );
   }
 }
