@@ -29,7 +29,7 @@ class _SearchViewState extends State<SearchView> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SearchBloc>(create: (_) {
-          return SearchBloc()..add(SearchEventStarted(0, '', counter,''));
+          return SearchBloc()..add(SearchEventStarted(0, '', counter,));
         }),
       ],
       child: Scaffold(
@@ -58,7 +58,7 @@ class _SearchViewState extends State<SearchView> {
                               onLoading: () {
                                 //fetching more data
                                 BlocProvider.of<SearchBloc>(context)
-                                    .add(SearchEventStarted(0, '', counter, ''));
+                                    .add(SearchEventStarted(0, '', counter, ));
                                 refreshController.loadComplete();
                               },
                               child: ListView.separated(

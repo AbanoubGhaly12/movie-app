@@ -8,9 +8,8 @@ class MovieEventStarted extends MovieEvent {
   final int movieId;
   final String query;
   final int pageNumber;
-  final bool refreshIndicator ;
 
-  const MovieEventStarted(this.movieId, this.query, this.pageNumber,this.refreshIndicator);
+  const MovieEventStarted(this.movieId, this.query, this.pageNumber,);
 
   @override
   List<Object> get props => [];
