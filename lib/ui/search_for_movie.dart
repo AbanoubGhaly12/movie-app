@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/search_bloc/search_bloc.dart';
 import 'package:movie_app/bloc/search_bloc/search_bloc_events.dart';
 import 'package:movie_app/bloc/search_bloc/search_bloc_state.dart';
+import 'package:movie_app/models/movie_details.dart';
 import 'package:movie_app/models/movies_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'movie_details.dart';
@@ -67,20 +68,15 @@ class _SearchViewState extends State<SearchView> {
 
                                   return ListTile(
                                     onTap: () {
+                                      MovieDetailsProvider movieProvider = MovieDetailsProvider(imageUrl: movie.backdropPath, title: movie.title, description: movie.overview, voteCount: movie.voteCount, voteAverage: movie.voteAverage!, genre: movie.adult == false
+                                          ? 'Family Movie'
+                                          : '+18',);
 
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) => MovieDetails(
-                                                voteAverage:
-                                                movie.voteAverage.toString(),
-                                                title: movie.originalTitle,
-                                                description: movie.overview,
-                                                voteCount: movie.voteCount,
-                                                imageUrl: movie.backdropPath!,
-                                                genre: movie.adult == false
-                                                    ? 'Family Movie'
-                                                    : '+18',
+                                                movieProvider: movieProvider,
                                               )));
                                     },
                                     leading: CircleAvatar(

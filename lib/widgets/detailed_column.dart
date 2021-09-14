@@ -1,23 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/constants/text_style.dart';
+import 'package:movie_app/models/movie_details.dart';
 
 import 'image container.dart';
 
 class DetailedColumn extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String description;
-  final int voteCount;
-  final String voteAverage;
-  final String genre;
+
+  MovieDetailsProvider movieProvider ;
+
+
   DetailedColumn(
-      {required this.imageUrl,
-      required this.title,
-      required this.description,
-      required this.voteCount,
-      required this.voteAverage,
-      required this.genre});
+      {
+      required this.movieProvider,});
 
   @override
   Widget build(BuildContext context) {
@@ -26,30 +21,30 @@ class DetailedColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ImageContainer(
-          imageUrl: imageUrl,
+          imageUrl: movieProvider.imageUrl,
         ),
         SizedBox(
           height: 10,
         ),
-        Text('Movie Name: $title',style: textStyle,),
+        Text('Movie Name: ${movieProvider.title}',style: textStyle,),
         SizedBox(
           height: 10,
         ),
-        Text('Vote Average: $voteAverage',style: textStyle,),
+        Text('Vote Average: ${movieProvider.voteAverage}',style: textStyle,),
         SizedBox(
           height: 10,
         ),
-        Text('Number of Voters: $voteCount',style: textStyle),
+        Text('Number of Voters: ${movieProvider.voteCount}',style: textStyle),
         SizedBox(
           height: 10,
         ),
-        Text('Genre: $genre' ,style: textStyle),
+        Text('Genre: ${movieProvider.genre}' ,style: textStyle),
         SizedBox(
           height: 30,
         ),
         Container(
           child: Text(
-            'Movie Description: $description',
+            'Movie Description: ${movieProvider.description}',
             style: textStyle.copyWith(fontSize: 15,),
             textAlign: TextAlign.justify,
           ),

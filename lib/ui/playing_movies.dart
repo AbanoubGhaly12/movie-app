@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/movie_bloc/movie_bloc_event.dart';
 import 'package:movie_app/bloc/movie_bloc/movie_bloc_state.dart';
+import 'package:movie_app/models/movie_details.dart';
 import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/bloc/movie_bloc/movie_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -19,6 +20,7 @@ class NowPlayingMovies extends StatefulWidget {
 class _NowPlayingMoviesState extends State<NowPlayingMovies> {
   int counter = 0;
   bool refresh = true;
+
 
   final RefreshController refreshController =
       RefreshController(initialRefresh: true);
@@ -62,19 +64,19 @@ class _NowPlayingMoviesState extends State<NowPlayingMovies> {
                           print(movie.title);
 
                           print(movie.overview);
+                          MovieDetailsProvider movieProvider = MovieDetailsProvider(imageUrl: movie.backdropPath, title: movie.title, description: movie.overview, voteCount: movie.voteCount, voteAverage: movie.voteAverage!, genre: movie.adult == false
+                              ? 'Family Movie'
+                              : '+18',);
+
+
+
+
+
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => MovieDetails(
-                                        voteAverage:
-                                            movie.voteAverage.toString(),
-                                        title: movie.originalTitle,
-                                        description: movie.overview,
-                                        voteCount: movie.voteCount,
-                                        imageUrl: movie.backdropPath!,
-                                        genre: movie.adult == false
-                                            ? 'Family Movie'
-                                            : '+18',
+                                        movieProvider: movieProvider,
                                       )));
                         },
                          leading:movie.backdropPath != null? CircleAvatar(
