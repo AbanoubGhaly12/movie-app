@@ -108,7 +108,7 @@ class _SearchViewState extends State<SearchView> {
                     } else {
                       return Center(
                           child: Container(
-                            child: Text('No Data Fetched'),
+                            child: Icon(Icons.error_outline),
                           ));
                     }
                   },
