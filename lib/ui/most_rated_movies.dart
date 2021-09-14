@@ -101,7 +101,7 @@ class _MostRatedMovieState extends State<MostRatedMovie> {
               } else {
                 return Center(
                     child: Container(
-                      child: Text('No Data Fetched'),
+                      child: Icon(Icons.error_outline),
                     ));
               }
             },

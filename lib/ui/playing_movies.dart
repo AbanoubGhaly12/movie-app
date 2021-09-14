@@ -42,7 +42,6 @@ class _NowPlayingMoviesState extends State<NowPlayingMovies> {
                 );
               } else if (state is MovieLoaded) {
                 List<Movie> movies = state.movieList;
-                bool refresh = true;
 
                 return SmartRefresher(
                   controller: refreshController,
@@ -105,8 +104,8 @@ class _NowPlayingMoviesState extends State<NowPlayingMovies> {
               } else {
                 return Center(
                     child: Container(
-                  child: Text('No Data Fetched'),
-                ));
+                      child: Icon(Icons.error_outline),
+                    ));
               }
             },
           ),
