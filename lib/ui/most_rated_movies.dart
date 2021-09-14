@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/most_rated_bloc/most_rated_event.dart';
@@ -6,6 +5,7 @@ import 'package:movie_app/bloc/most_rated_bloc/most_rated_state.dart';
 import 'package:movie_app/models/movie_details.dart';
 import 'package:movie_app/models/movies_model.dart';
 import 'package:movie_app/bloc/most_rated_bloc/most_rated_bloc.dart';
+import 'package:movie_app/widgets/cashed_images.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'movie_details.dart';
 
@@ -76,8 +76,7 @@ class _MostRatedMovieState extends State<MostRatedMovie> {
                                   )));
                         },
                         leading:movie.backdropPath != null? CircleAvatar(
-                          child: CachedNetworkImage(
-                              imageUrl: 'https://image.tmdb.org/t/p/original/${movie.backdropPath}'),
+                          child: MovieCachedImage(imageUrl: movie.backdropPath,),
                           backgroundColor: Colors.transparent,
                         ):Icon(Icons.error_outline),
                         title: Text(movie.title),
